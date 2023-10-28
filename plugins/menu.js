@@ -16,7 +16,7 @@ const {
 const os = require('os')
 const speed = require('performance-now')
 Function({
-	pattern: 'menu',
+	pattern: 'help',
 	fromMe: isPublic,
 	type: 'info'
 }, async (message, match, client) => {
@@ -41,30 +41,22 @@ Function({
 			commandslist[command.type].push((match.length >= 3 ? (HANDLER + mmatch) : command.pattern).trim())
 		}
 	})
-	let msg = `╭━━━〔 ${BOT_INFO.split(";")[0]} ⁩〕━━━┈⊷
-┃✵╭──────────────
-┃✵│ Owner : ${BOT_INFO.split(";")[1]}
-┃✵│ User : ${m.pushName.replace( /[\r\n]+/gm, "" )}
-┃✵│ Plugins : ${commands.length}
-┃✵│ Runtime : ${runtime(process.uptime())}
-┃✵│ Mode : ${MODE}
-┃✵│ Platform : ${os.platform()}
-┃✵│ Ram : ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-┃✵│ Version : ${VERSION}
-┃✵╰──────────────
-╰━━━━━━━━━━━━━━━┈⊷
-`
+	let msg = `Owner : ${BOT_INFO.split(";")[1]}
+User : ${m.pushName.replace( /[\r\n]+/gm, "" )}
+Commands : ${commands.length}
+Runtime : ${runtime(process.uptime())}
+Mode : ${MODE}`
+
+
+
 	for (const command in commandslist) {
-		msg += `╭─────────────┈⊷
-`
-		msg += `│ 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
-		msg += `╰┬────────────┈⊷\n┌┤\n`
+		
+
+		msg += `「 *${await Fancy(command.toUpperCase(), 32)}* 」\n\n`
+		
 		for (const plugin of commandslist[command])
-			msg += `││◦➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
-		msg += `│╰────────────┈⊷
-`
-		msg += `╰─────────────┈⊷
-`
+			msg += `${await Fancy(plugin.toLowerCase(), 32)},\\`
+		
 	}
 	await message.send(msg);
 	/* var img = await parsedUrl(BOT_INFO)
