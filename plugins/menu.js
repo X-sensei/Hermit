@@ -9,6 +9,7 @@ const {
 } = require('../lib/');
 const {
 	BOT_INFO,
+	BOT_NAME,
 	MODE,
 	PREFIX,
 	VERSION
