@@ -50,7 +50,7 @@ Function({
 `
 	for (const command in commandslist) {
 		
-		msg += ` 「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n`
+		msg += `\n\n 「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n\n`
 		
 		for (const plugin of commandslist[command])
 			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
