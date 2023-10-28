@@ -41,7 +41,8 @@ Function({
 			commandslist[command.type].push((match.length >= 3 ? (HANDLER + mmatch) : command.pattern).trim())
 		}
 	})
-	let msg = `*🎗️ Owner :* ${BOT_INFO.split(";")[1]}
+	let msg = `*🐉 Name :* ${BOT_NAME}
+*🎗️ Owner :* ${BOT_INFO.split(";")[1]}
 *👤 User :* ${m.pushName.replace( /[\r\n]+/gm, "" )}
 *🔖 Commands :* ${commands.length}
 *⚡ Uptime :* ${runtime(process.uptime())}
@@ -50,7 +51,7 @@ Function({
 `
 	for (const command in commandslist) {
 		
-		msg += `\n\n 「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n\n`
+		msg += `\n\n 🐲「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n`
 		
 		for (const plugin of commandslist[command])
 			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
