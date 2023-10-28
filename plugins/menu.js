@@ -50,14 +50,11 @@ Function({
 `
 	for (const command in commandslist) {
 		
-		msg += ` 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
-		msg += `╰┬────────────┈⊷\n┌┤\n`
+		msg += ` 「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n`
+		
 		for (const plugin of commandslist[command])
-			msg += `││◦➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
-		msg += `│╰────────────┈⊷
-`
-		msg += `╰─────────────┈⊷
-`
+			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
+		
 	}
 	await message.send(msg);
 	/* var img = await parsedUrl(BOT_INFO)
