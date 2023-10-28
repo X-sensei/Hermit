@@ -42,17 +42,17 @@ Function({
 			commandslist[command.type].push((match.length >= 3 ? (HANDLER + mmatch) : command.pattern).trim())
 		}
 	})
-	let msg = `*🐉 Name :* ${BOT_NAME}
-*🎗️ Owner :* ${BOT_INFO.split(";")[1]}
-*👤 User :* ${m.pushName.replace( /[\r\n]+/gm, "" )}
-*🔖 Commands :* ${commands.length}
-*⚡ Uptime :* ${runtime(process.uptime())}
-*❄️ Mode :* ${MODE}
+	let msg = `*🐉 Name :* _${BOT_NAME}_
+*🎗️ Owner :* _${BOT_INFO.split(";")[1]}_
+*👤 User :* _${m.pushName.replace( /[\r\n]+/gm, "" )}_
+*🔖 Commands :* _${commands.length}_
+*⚡ Uptime :* _${runtime(process.uptime())}_
+*❄️ Mode :* _${MODE}_
 
 `
 	for (const command in commandslist) {
 		
-		msg += `\n\n 🐲「 *${await Fancy(command.toUpperCase(), 32)}* 」 \n`
+		msg += `\n\n *🐲「 ${await Fancy(command.toUpperCase(), 32)} 」* \n`
 		
 		for (const plugin of commandslist[command])
 			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
