@@ -55,7 +55,7 @@ Mode : ${MODE}`
 		msg += `「 *${await Fancy(command.toUpperCase(), 32)}* 」\n\n`
 		
 		for (const plugin of commandslist[command])
-			msg += `${await Fancy(plugin.toLowerCase(), 32)},\\`
+			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
 		
 	}
 	await message.send(msg);
