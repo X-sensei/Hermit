@@ -41,22 +41,23 @@ Function({
 			commandslist[command.type].push((match.length >= 3 ? (HANDLER + mmatch) : command.pattern).trim())
 		}
 	})
-	let msg = `Owner : ${BOT_INFO.split(";")[1]}
-User : ${m.pushName.replace( /[\r\n]+/gm, "" )}
-Commands : ${commands.length}
-Runtime : ${runtime(process.uptime())}
-Mode : ${MODE}`
+	let msg = `*🎗️ Owner :* ${BOT_INFO.split(";")[1]}
+*👤 User :* ${m.pushName.replace( /[\r\n]+/gm, "" )}
+*🔖 Commands :* ${commands.length}
+*⚡ Uptime :* ${runtime(process.uptime())}
+*❄️ Mode :* ${MODE}
 
-
-
+`
 	for (const command in commandslist) {
 		
-
-		msg += `「 *${await Fancy(command.toUpperCase(), 32)}* 」\n\n`
-		
+		msg += ` 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
+		msg += `╰┬────────────┈⊷\n┌┤\n`
 		for (const plugin of commandslist[command])
-			msg += `${await Fancy(plugin.toLowerCase(), 32)}, `
-		
+			msg += `││◦➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
+		msg += `│╰────────────┈⊷
+`
+		msg += `╰─────────────┈⊷
+`
 	}
 	await message.send(msg);
 	/* var img = await parsedUrl(BOT_INFO)
